@@ -85,7 +85,20 @@ public class MyLinkedList<K> {
             System.out.println("30 not found in the list");
         }
     }
-
+    public void addAfter(INode<K> tempNode,INode<K> node){
+        INode<K> tempNode1;
+        INode<K> iteratorNode=head;
+        while(iteratorNode != null){
+            K data1 = tempNode.getKey();
+            K data2 = iteratorNode.getKey();
+            if(data1.equals(data2)){
+                node.seNext(iteratorNode.getNext());
+                iteratorNode.seNext(node);
+                return;
+            }
+            iteratorNode = iteratorNode.getNext();
+        }//end while
+    }//end addAfter
     public void printList(){
         System.out.println("MyNode "+head);
     }
@@ -106,9 +119,13 @@ public class MyLinkedList<K> {
 //        listNode.pop();
 //        listNode.printList();
 
-        listNode.popLast();
-        listNode.printList();
+//        listNode.popLast();
+//        listNode.printList();
 
         listNode.searching(node3);
+
+        MyNode<Integer> node4 = new MyNode<>(40);
+        listNode.addAfter(node3, node4);
+        listNode.printList();
     }
 }
