@@ -49,6 +49,19 @@ public class MyLinkedList<K> {
         }
         head=head.getNext();
     }
+    public void popLast(){
+        if(head==null){
+            System.out.println("LinkedList is already empty ");
+            return;
+        }
+        INode<K> tempNode;
+        tempNode = head;
+        while(tempNode.getNext() != tail){
+            tempNode = tempNode.getNext();
+        }
+        tempNode.seNext(null);
+        tail=tempNode;
+    }
 
     public void printList(){
         System.out.println("MyNode "+head);
@@ -67,7 +80,10 @@ public class MyLinkedList<K> {
         listNode.addMiddle(node3);
         listNode.printList();
 
-        listNode.pop();
+//        listNode.pop();
+//        listNode.printList();
+
+        listNode.popLast();
         listNode.printList();
     }
 }
