@@ -41,7 +41,15 @@ public class MyLinkedList<K> {
             head.seNext(newNode);
             newNode.seNext(oldNode);
         }
+    }//addMiddle
+    public void pop(){
+        if(head==null){
+            System.out.println("LinkedList is already empty ");
+            return;
+        }
+        head=head.getNext();
     }
+
     public void printList(){
         System.out.println("MyNode "+head);
     }
@@ -57,6 +65,9 @@ public class MyLinkedList<K> {
         listNode.printList();
 
         listNode.addMiddle(node3);
+        listNode.printList();
+
+        listNode.pop();
         listNode.printList();
     }
 }
