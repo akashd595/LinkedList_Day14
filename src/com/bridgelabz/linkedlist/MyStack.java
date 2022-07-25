@@ -30,5 +30,8 @@ public class MyStack<K> {
         stackTest.push(node3);
         stackTest.printStack();
 
+        System.out.println("Top of stack is "+stackTest.peak());
+        stackTest.pop();
+        stackTest.printStack();
     }
 }
