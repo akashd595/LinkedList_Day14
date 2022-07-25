@@ -42,25 +42,28 @@ public class MyLinkedList<K> {
             newNode.seNext(oldNode);
         }
     }//addMiddle
-    public void pop(){
+    public void popFirst(){
         if(head==null){
             System.out.println("LinkedList is already empty ");
             return;
         }
         head=head.getNext();
     }
-    public void popLast(){
+    public INode<K> pop(){
         if(head==null){
             System.out.println("LinkedList is already empty ");
-            return;
+            return null;
         }
         INode<K> tempNode;
+        INode<K> removedNode=tail;
+
         tempNode = head;
         while(tempNode.getNext() != tail){
             tempNode = tempNode.getNext();
         }
         tempNode.seNext(null);
         tail=tempNode;
+        return removedNode;
     }
     public void searching(INode<K> node){
         if(head==null){
