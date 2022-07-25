@@ -42,12 +42,14 @@ public class MyLinkedList<K> {
             newNode.seNext(oldNode);
         }
     }//addMiddle
-    public void popFirst(){
+    public INode<K> popFirst(){
         if(head==null){
             System.out.println("LinkedList is already empty ");
-            return;
+            return null;
         }
+        INode<K> removedNode = head;
         head=head.getNext();
+        return  removedNode;
     }
     public INode<K> pop(){
         if(head==null){
